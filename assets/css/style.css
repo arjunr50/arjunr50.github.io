@@ -211,7 +211,7 @@ html, body {
 /* HERO
 ================================================== */
 .hero { 
-    background: #FFF / cover; 
+    background: url(../img/hero.jpg) no-repeat center / cover; 
     height: 100%;
     width: 100%;
     min-height: 700px;
