@@ -1,0 +1,23 @@
+<svg width="194px" height="194px" viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.72"></g>
+    <g id="SVGRepo_iconCarrier">
+        <g id="color">
+            <circle cx="36" cy="36" r="15" fill="#fcea2b" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></circle>
+        </g>
+        <g id="hair"></g>
+        <g id="skin"></g>
+        <g id="skin-shadow"></g>
+        <g id="line">
+            <circle cx="36" cy="36" r="15" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></circle>
+            <line x1="36" x2="36" y1="15" y2="8" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="50.8492" x2="55.799" y1="21.1508" y2="16.201" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="57" x2="64" y1="36" y2="36" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="50.8492" x2="55.799" y1="50.8492" y2="55.799" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="36" x2="36" y1="57" y2="64" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="21.1508" x2="16.201" y1="50.8492" y2="55.799" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="15" x2="8" y1="36" y2="36" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+            <line x1="21.1508" x2="16.201" y1="21.1508" y2="16.201" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></line>
+        </g>
+    </g>
+</svg>
