@@ -67,7 +67,8 @@ class ProjectCard extends StatelessWidget {
                                   side: BorderSide.none,
                                 ),
                                 label: TextView(
-                                  color: Theme.of(context).colorScheme.onSurface,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
                                   text: data['app']!,
                                   fontSize: 12,
                                 ),
@@ -84,41 +85,50 @@ class ProjectCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  TextView(
-                                    text: data['title']!,
-                                    color: Theme.of(context).colorScheme.onSurface,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                  Expanded(
+                                    child: TextView(
+                                      text: data['title']!,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                  Wrap(
-                                    spacing: 8,
-                                    runSpacing: 8,
-                                    alignment: WrapAlignment.end,
-                                    children: data['tech_stack']!
-                                        .split(',')
-                                        .map((tech) => Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: 4, horizontal: 5),
-                                              decoration: BoxDecoration(
-                                                color: Colors.transparent
-                                                    .withValues(alpha: 0.2),
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                              ),
-                                              child: Center(
-                                                child: TextView(
-                                                  textAlign: TextAlign.center,
-                                                  color: Theme.of(context).colorScheme.onSurface,
-                                                  text: tech,
-                                                  fontSize: 12,
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: Wrap(
+                                      spacing: 8,
+                                      runSpacing: 8,
+                                      alignment: WrapAlignment.end,
+                                      children: data['tech_stack']!
+                                          .split(',')
+                                          .map((tech) => Container(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 4,
+                                                        horizontal: 5),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.transparent
+                                                      .withAlpha(50),
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
                                                 ),
-                                              ),
-                                            ))
-                                        .toList(),
+                                                child: Center(
+                                                  child: TextView(
+                                                    textAlign: TextAlign.center,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .onSurface,
+                                                    text: tech,
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                              ))
+                                          .toList(),
+                                    ),
                                   ),
                                 ],
                               ),

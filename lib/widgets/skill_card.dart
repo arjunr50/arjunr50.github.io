@@ -8,6 +8,7 @@ class SkillCard extends StatelessWidget {
   final Color shadowColor;
   final double elevation;
   final double hoverElevation;
+  final double baseSize;
 
   SkillCard({
     super.key,
@@ -16,11 +17,11 @@ class SkillCard extends StatelessWidget {
     this.shadowColor = Colors.black54,
     this.elevation = 4.0,
     this.hoverElevation = 12.0,
+    this.baseSize = 150,
   });
 
   final ValueNotifier<bool> _isHovering = ValueNotifier(false);
 
-  static const double _baseSize = 150;
   static const double _hoverScale = 1.08;
 
   @override
@@ -36,8 +37,8 @@ class SkillCard extends StatelessWidget {
                 duration: const Duration(milliseconds: 180),
                 curve: Curves.easeOut,
                 child: SizedBox(
-                  width: _baseSize,
-                  height: _baseSize,
+                  width: baseSize,
+                  height: baseSize,
                   child: Card(
                     elevation: _isHovering.value ? hoverElevation : elevation,
                     shadowColor: shadowColor.withValues(

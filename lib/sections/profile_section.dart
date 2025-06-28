@@ -50,7 +50,7 @@ class ProfileSection extends StatelessWidget {
                 ),
                 CountComponent(
                   size: size,
-                  count: '2.6',
+                  count: '3',
                   text: ' Years of',
                   text2: "Experience",
                 ),
@@ -96,7 +96,7 @@ class ProfileSection extends StatelessWidget {
                     ),
                     CountComponent(
                       size: size,
-                      count: '2.6',
+                      count: '3',
                       text: ' Years of',
                       text2: "Experience",
                     ),
@@ -143,7 +143,7 @@ class ProfileSection extends StatelessWidget {
                   ),
                   CountComponent(
                     size: size,
-                    count: '2.6',
+                    count: '3',
                     text: ' Years of',
                     text2: "Experience",
                   ),

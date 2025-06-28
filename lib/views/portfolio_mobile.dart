@@ -111,10 +111,10 @@ class PortfolioMobile extends StatelessWidget {
                     ),
                     SliverToBoxAdapter(
                       child: AboutMeSection(
-                        aboutMeKey: sectionKeys[1],
-                        skillsKey: sectionKeys[2],
-                        size: size,
-                      ),
+                          aboutMeKey: sectionKeys[1],
+                          skillsKey: sectionKeys[2],
+                          size: size,
+                          deviceType: deviceType),
                     ),
                     SliverToBoxAdapter(
                       child: ProjectSection(

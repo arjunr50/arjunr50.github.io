@@ -91,6 +91,7 @@ class PortfolioWeb extends StatelessWidget {
                             aboutMeKey: sectionKeys[1],
                             skillsKey: sectionKeys[2],
                             size: size,
+                            deviceType: deviceType,
                           ),
                         ),
                         SliverToBoxAdapter(

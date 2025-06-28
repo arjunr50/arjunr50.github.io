@@ -45,7 +45,7 @@ class ProjectSection extends StatelessWidget {
     return Container(
       width: size.width,
       padding:
-          EdgeInsets.symmetric(horizontal: size.width * 0.13, vertical: 30),
+          EdgeInsets.symmetric(horizontal: size.width * 0.1, vertical: 30),
       child: Column(
           spacing: 30,
           crossAxisAlignment: CrossAxisAlignment.center,

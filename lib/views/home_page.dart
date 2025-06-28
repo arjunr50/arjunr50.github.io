@@ -13,14 +13,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
-
   final List<GlobalKey> _sectionKeys = List.generate(5, (_) => GlobalKey());
-
   final ValueNotifier<bool> _hasScrolled = ValueNotifier(false);
-
   final ScrollController _scrollController = ScrollController();
   double _scrollOffsets = 0.0;
-
   DeviceType? _lastDeviceType;
 
   void onSectionSelected(int index) async {
