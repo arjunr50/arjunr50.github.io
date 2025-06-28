@@ -20,32 +20,9 @@ class ProjectSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int crossAxisCount;
-    double aspectRatio;
-    double sectionHeight;
-
-    switch (deviceType) {
-      case DeviceType.web:
-        crossAxisCount = 3;
-        aspectRatio = size.width / (size.height * 1.5);
-        sectionHeight = height ?? 700;
-        break;
-      case DeviceType.tab:
-        crossAxisCount = 2;
-        aspectRatio = size.width / (size.height * 1.3);
-        sectionHeight = height ?? 600;
-        break;
-      case DeviceType.phone:
-        crossAxisCount = 1;
-        aspectRatio = size.width / (size.height * 0.7);
-        sectionHeight = height ?? 500;
-        break;
-    }
-
     return Container(
       width: size.width,
-      padding:
-          EdgeInsets.symmetric(horizontal: size.width * 0.1, vertical: 30),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.1, vertical: 30),
       child: Column(
           spacing: 30,
           crossAxisAlignment: CrossAxisAlignment.center,
