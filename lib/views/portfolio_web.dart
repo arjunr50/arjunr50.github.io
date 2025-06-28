@@ -68,7 +68,6 @@ class PortfolioWeb extends StatelessWidget {
                                 top: 30,
                               ),
                               child: CustomAppBar(
-                                name: 'Arjun R',
                                 selectedIndex: selectedIndex.value,
                                 onItemSelected: (int index) =>
                                     onSectionSelected(index),

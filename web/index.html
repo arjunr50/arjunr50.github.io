@@ -29,10 +29,35 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>portfolio</title>
+  <title>Arjun's portfolio</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    .container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  </style>
 </head>
 <body>
+  <div id="loading_indicator" class="container">
+        <img class="indicator" src="./assets/loading.gif"/>
+  </div>
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.addEventListener('flutter-ready', function() {
+      const loadingIndicator = document.getElementById('loading_indicator');
+      if (loadingIndicator) {
+        loadingIndicator.remove();
+      }
+    });
+  </script>
 </body>
 </html>

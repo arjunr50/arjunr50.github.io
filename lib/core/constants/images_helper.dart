@@ -22,3 +22,4 @@ const String kMenu = '${svg}menu.svg';
 const String kShare = '${svg}share.svg';
 const String kDownload = '${svg}download.svg';
 const String kCsharp = '${svg}csharp.svg';
+const String kLogo = '${svg}logo.svg';

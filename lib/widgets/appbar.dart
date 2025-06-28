@@ -53,14 +53,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 onTap: () {
                   onItemSelected(0);
                 },
-                child: TextView(
-                  text: name,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white
-                      : Colors.deepPurple,
+                child: SvgPicture.asset(
+                  kLogo,
+                  width: 40,
+                  colorFilter: ColorFilter.mode(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.deepPurple,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
               Visibility(
@@ -68,47 +69,52 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 replacement: Spacer(),
                 child: Expanded(
                   flex: 2,
-                  child: ValueListenableBuilder(
-                      valueListenable: _hoveredIndex,
-                      builder: (context, value, child) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(items.length, (index) {
-                            final isSelected = selectedIndex == index;
-                            final isHovered = _hoveredIndex.value == index;
-                            Color color;
-                            if (isSelected) {
-                              color = Colors.deepPurple;
-                            } else if (isHovered) {
-                              color = Colors.deepPurpleAccent;
-                            } else {
-                              color = Theme.of(context).brightness ==
-                                  Brightness.dark
-                                  ? Colors.white
-                                  : Colors.grey;
-                            }
-                            return MouseRegion(
-                              onEnter: (_) => _hoveredIndex.value = index,
-                              onExit: (_) => _hoveredIndex.value = null,
-                              child: InkWell(
-                                radius: 20,
-                                onTap: () => onItemSelected(index),
-                                borderRadius: BorderRadius.circular(12),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 18, vertical: 10),
-                                  child: TextView(
-                                    text: items[index],
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: color,
+                  child: Center(
+                    child: ValueListenableBuilder(
+                        valueListenable: _hoveredIndex,
+                        builder: (context, value, child) {
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(items.length, (index) {
+                                final isSelected = selectedIndex == index;
+                                final isHovered = _hoveredIndex.value == index;
+                                Color color;
+                                if (isSelected) {
+                                  color = Colors.deepPurple;
+                                } else if (isHovered) {
+                                  color = Colors.deepPurpleAccent;
+                                } else {
+                                  color = Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Colors.grey;
+                                }
+                                return MouseRegion(
+                                  onEnter: (_) => _hoveredIndex.value = index,
+                                  onExit: (_) => _hoveredIndex.value = null,
+                                  child: InkWell(
+                                    radius: 20,
+                                    onTap: () => onItemSelected(index),
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 18, vertical: 10),
+                                      child: TextView(
+                                        text: items[index],
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: color,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            );
-                          }),
-                        );
-                      }),
+                                );
+                              }),
+                            ),
+                          );
+                        }),
+                  ),
                 ),
               ),
               IconButton(
