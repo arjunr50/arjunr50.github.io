@@ -71,45 +71,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: ValueListenableBuilder(
                       valueListenable: _hoveredIndex,
                       builder: (context, value, child) {
-                        return SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(items.length, (index) {
-                              final isSelected = selectedIndex == index;
-                              final isHovered = _hoveredIndex.value == index;
-                              Color color;
-                              if (isSelected) {
-                                color = Colors.deepPurple;
-                              } else if (isHovered) {
-                                color = Colors.deepPurpleAccent;
-                              } else {
-                                color = Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? Colors.white
-                                    : Colors.grey;
-                              }
-                              return MouseRegion(
-                                onEnter: (_) => _hoveredIndex.value = index,
-                                onExit: (_) => _hoveredIndex.value = null,
-                                child: InkWell(
-                                  radius: 20,
-                                  onTap: () => onItemSelected(index),
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 18, vertical: 10),
-                                    child: TextView(
-                                      text: items[index],
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: color,
-                                    ),
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(items.length, (index) {
+                            final isSelected = selectedIndex == index;
+                            final isHovered = _hoveredIndex.value == index;
+                            Color color;
+                            if (isSelected) {
+                              color = Colors.deepPurple;
+                            } else if (isHovered) {
+                              color = Colors.deepPurpleAccent;
+                            } else {
+                              color = Theme.of(context).brightness ==
+                                  Brightness.dark
+                                  ? Colors.white
+                                  : Colors.grey;
+                            }
+                            return MouseRegion(
+                              onEnter: (_) => _hoveredIndex.value = index,
+                              onExit: (_) => _hoveredIndex.value = null,
+                              child: InkWell(
+                                radius: 20,
+                                onTap: () => onItemSelected(index),
+                                borderRadius: BorderRadius.circular(12),
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 18, vertical: 10),
+                                  child: TextView(
+                                    text: items[index],
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: color,
                                   ),
                                 ),
-                              );
-                            }),
-                          ),
+                              ),
+                            );
+                          }),
                         );
                       }),
                 ),
