@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/constant.dart';
 import 'package:portfolio/core/utils/device_type.dart';
+import 'package:portfolio/core/utils/launch_url.dart';
 import 'package:portfolio/widgets/social_icons.dart';
 import 'package:portfolio/widgets/textview.dart';
 
@@ -32,10 +33,12 @@ class ContactSection extends StatelessWidget {
             fontSize: 30,
             fontWeight: FontWeight.bold,
             color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white:Color(0xff145C9E),
+                ? Colors.white
+                : Color(0xff145C9E),
           ),
           TextView(
-            text: "I'm open to exploring exciting projects, creative collaborations, or simply having a conversation. Feel free to get in touch anytime!",
+            text:
+                "I'm open to exploring exciting projects, creative collaborations, or simply having a conversation. Feel free to get in touch anytime!",
             fontSize: 16,
             color: Theme.of(context).colorScheme.onSurface,
           ),
@@ -49,6 +52,7 @@ class ContactSection extends StatelessWidget {
                 color: Colors.blueAccent,
                 icon: Icons.email,
                 value: kEmail,
+                onClick: () => openUrl('mailto:$kEmail'),
               ),
               ContactInfoCard(
                 color: Colors.green,
@@ -59,6 +63,7 @@ class ContactSection extends StatelessWidget {
                 color: Colors.orange,
                 icon: Icons.phone,
                 value: kPhoneNo,
+                onClick: () => openUrl('tel:$kPhoneNo'),
               ),
             ],
           ),
@@ -111,10 +116,9 @@ class ContactInfoCard extends StatelessWidget {
                           color: color.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(20)),
                       child: Icon(icon, color: color, size: 18)),
-
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 4, horizontal: 10),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                     decoration: BoxDecoration(
                       color: color.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(8),
