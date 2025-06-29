@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/app_colors.dart';
 import 'package:portfolio/core/constants/images_helper.dart';
 
 class ImageContainer extends StatelessWidget {
@@ -24,7 +23,7 @@ class ImageContainer extends StatelessWidget {
           fit: BoxFit.cover,
           image: AssetImage(kProfile),
         ),
-        border: Border.all(color: AppColors.royalPurple, width: 1.2),
+        border: Border.all(color: Theme.of(context).hoverColor, width: 1.2),
       ),
     );
   }

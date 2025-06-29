@@ -36,7 +36,6 @@ class TitleText extends StatelessWidget {
               text: "Hello, I am",
               fontSize: 30,
               fontWeight: FontWeight.bold,
-              fontFamily: "Poppins",
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white:Color(0xff145C9E),
             ),
@@ -47,7 +46,6 @@ class TitleText extends StatelessWidget {
                   text: "Arjun R ",
                   fontSize: deviceType == DeviceType.phone ? 30 : 40,
                   fontWeight: FontWeight.w600,
-                  fontFamily: "Poppins",
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.white:Color(0xff145C9E),
                 ),
@@ -74,7 +72,6 @@ class TitleText extends StatelessWidget {
                             textStyle: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              fontFamily: "Poppins",
                               color: Colors
                                   .white,
                             ),
@@ -96,7 +93,6 @@ class TitleText extends StatelessWidget {
                 color: Theme.of(context).brightness == Brightness.dark
                     ? Colors.white:Color(0xff145C9E),
                 fontSize: 16,
-                fontFamily: "Poppins",
                 textAlign: TextAlign.justify,
                 top: 10,
               ),

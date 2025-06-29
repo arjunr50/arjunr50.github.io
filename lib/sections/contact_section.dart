@@ -29,7 +29,7 @@ class ContactSection extends StatelessWidget {
         children: [
           TextView(
             text: "Contact",
-            fontSize: 35,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
             color: Theme.of(context).brightness == Brightness.dark
                 ? Colors.white:Color(0xff145C9E),

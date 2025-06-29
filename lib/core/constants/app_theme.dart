@@ -3,6 +3,7 @@ import 'package:portfolio/core/constants/app_colors.dart';
 
 class AppTheme {
   static final ThemeData darkTheme = ThemeData(
+    fontFamily: 'Poppins',
     brightness: Brightness.dark,
     useMaterial3: true,
     primaryColor: AppColors.darkPrimary,
@@ -27,6 +28,7 @@ class AppTheme {
   );
 
   static final ThemeData lightTheme = ThemeData(
+    fontFamily: 'Poppins',
     brightness: Brightness.light,
     useMaterial3: true,
     primaryColor: AppColors.lightPrimary,

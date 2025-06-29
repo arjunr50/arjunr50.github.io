@@ -23,7 +23,6 @@ class CountComponent extends StatelessWidget {
         TextView(
           text: count,
           color: Theme.of(context).colorScheme.onSurface,
-          fontFamily: 'Poppins',
           fontSize: 40,
           fontWeight: FontWeight.w600,
         ),
@@ -33,7 +32,6 @@ class CountComponent extends StatelessWidget {
         TextView(
           text: "$text\n $text2",
           color: Theme.of(context).colorScheme.onSurface,
-          fontFamily: 'Poppins',
         )
       ],
     );

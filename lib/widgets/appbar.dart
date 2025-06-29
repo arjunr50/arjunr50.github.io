@@ -106,6 +106,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                         color: color,
+                                        fontFamily: "Poppins",
                                       ),
                                     ),
                                   ),
