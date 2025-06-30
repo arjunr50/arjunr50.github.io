@@ -65,7 +65,7 @@ class SkillCard extends StatelessWidget {
                           TextView(
                             text: skillName,
                             textAlign: TextAlign.center,
-                            fontSize: 14,
+                            fontSize: baseSize * 0.10,
                             fontWeight: FontWeight.w400,
                             color: Theme.of(context).hintColor,
                           ),
