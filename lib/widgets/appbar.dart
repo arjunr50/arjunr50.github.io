@@ -36,6 +36,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: BackdropFilter(
@@ -57,7 +58,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   kLogo,
                   width: 40,
                   colorFilter: ColorFilter.mode(
-                    Theme.of(context).brightness == Brightness.dark
+                    theme.brightness == Brightness.dark
                         ? Colors.white
                         : Colors.deepPurple,
                     BlendMode.srcIn,
@@ -86,8 +87,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 } else if (isHovered) {
                                   color = Colors.deepPurpleAccent;
                                 } else {
-                                  color = Theme.of(context).brightness ==
-                                          Brightness.dark
+                                  color = theme.brightness == Brightness.dark
                                       ? Colors.white
                                       : Colors.grey;
                                 }
@@ -120,9 +120,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  Theme.of(context).brightness == Brightness.dark
-                      ? kLightMode
-                      : kDarkMode,
+                  theme.brightness == Brightness.dark ? kLightMode : kDarkMode,
                   height: 28,
                   width: 28,
                 ),
@@ -136,7 +134,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     height: 30,
                     width: 30,
                     colorFilter: ColorFilter.mode(
-                        Theme.of(context).brightness == Brightness.dark
+                        theme.brightness == Brightness.dark
                             ? Colors.white
                             : Colors.deepPurple,
                         BlendMode.srcIn),

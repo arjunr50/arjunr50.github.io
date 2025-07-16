@@ -19,12 +19,13 @@ class AboutMeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     double cardSize = deviceType == DeviceType.phone ? 100 : 150;
     return Container(
       key: aboutMeKey,
       width: size.width,
       padding:
-          EdgeInsets.symmetric(horizontal: size.width * 0.13, vertical: 30),
+          EdgeInsets.symmetric(horizontal: size.width * 0.10, vertical: 30),
       child: Column(
         spacing: 30,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,12 +34,12 @@ class AboutMeSection extends StatelessWidget {
             text: "About Me",
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).brightness == Brightness.dark
+            color: theme.brightness == Brightness.dark
                 ? Colors.white
                 : Color(0xff145C9E),
           ),
           TextView(
-              color: Theme.of(context).colorScheme.onSurface,
+              color: theme.colorScheme.onSurface,
               fontSize: 16,
               textAlign: TextAlign.justify,
               text:
@@ -48,7 +49,7 @@ class AboutMeSection extends StatelessWidget {
             text: "Technical Skills",
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).brightness == Brightness.dark
+            color: theme.brightness == Brightness.dark
                 ? Colors.white
                 : Color(0xff145C9E),
           ),

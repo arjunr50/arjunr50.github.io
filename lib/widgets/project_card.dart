@@ -17,6 +17,7 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return MouseRegion(
       onEnter: (_) => isHovered.value = true,
       onExit: (_) => isHovered.value = false,
@@ -40,10 +41,8 @@ class ProjectCard extends StatelessWidget {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withValues(alpha: 0.5)),
+                        color:
+                            theme.colorScheme.secondary.withValues(alpha: 0.5)),
                     child: Column(
                       children: [
                         Stack(children: [
@@ -67,14 +66,11 @@ class ProjectCard extends StatelessWidget {
                                   side: BorderSide.none,
                                 ),
                                 label: TextView(
-                                  color:
-                                      Theme.of(context).colorScheme.onSurface,
+                                  color: theme.colorScheme.onSurface,
                                   text: data['app']!,
                                   fontSize: 12,
                                 ),
-                                backgroundColor: Theme.of(context)
-                                    .colorScheme
-                                    .onSurface
+                                backgroundColor: theme.colorScheme.onSurface
                                     .withValues(alpha: 0.5)),
                           ),
                         ]),
@@ -90,51 +86,50 @@ class ProjectCard extends StatelessWidget {
                                   Expanded(
                                     child: TextView(
                                       text: data['title']!,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface,
+                                      color: theme.colorScheme.onSurface,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Align(
-                                    alignment: Alignment.topRight,
-                                    child: Wrap(
-                                      spacing: 8,
-                                      runSpacing: 8,
-                                      alignment: WrapAlignment.end,
-                                      children: data['tech_stack']!
-                                          .split(',')
-                                          .map((tech) => Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 4,
-                                                        horizontal: 5),
-                                                decoration: BoxDecoration(
-                                                  color: Colors.transparent
-                                                      .withAlpha(50),
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                ),
-                                                child: Center(
+                                  Expanded(
+                                    flex: 2,
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Wrap(
+                                        spacing: 8,
+                                        runSpacing: 8,
+                                        alignment: WrapAlignment.end,
+                                        children: data['tech_stack']!
+                                            .split(',')
+                                            .map((tech) => Container(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 4,
+                                                      horizontal: 5),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.transparent
+                                                        .withAlpha(50),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12),
+                                                  ),
                                                   child: TextView(
                                                     textAlign: TextAlign.center,
-                                                    color: Theme.of(context)
-                                                        .colorScheme
-                                                        .onSurface,
+                                                    color: theme
+                                                        .colorScheme.onSurface,
                                                     text: tech,
                                                     fontSize: 12,
                                                   ),
-                                                ),
-                                              ))
-                                          .toList(),
+                                                ))
+                                            .toList(),
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
                               TextView(
                                 text: data['description'] ?? "",
-                                color: Theme.of(context).colorScheme.onSurface,
+                                color: theme.colorScheme.onSurface,
                                 fontSize: 13,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,

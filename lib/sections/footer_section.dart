@@ -16,9 +16,10 @@ class PortfolioFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).canvasColor,
+        color: theme.canvasColor,
       ),
       padding: const EdgeInsets.all(20),
       child: Center(
@@ -26,18 +27,14 @@ class PortfolioFooter extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextView(
-                text: 'Made with ',
-                fontSize: 14,
-                color: Theme.of(context).disabledColor),
+                text: 'Made with ', fontSize: 14, color: theme.disabledColor),
             SvgPicture.asset(
               kHeart,
               width: 18,
               height: 18,
             ),
             TextView(
-                text: ' in Flutter',
-                fontSize: 14,
-                color: Theme.of(context).disabledColor),
+                text: ' in Flutter', fontSize: 14, color: theme.disabledColor),
           ],
         ),
       ),

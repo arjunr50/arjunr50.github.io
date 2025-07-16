@@ -33,18 +33,16 @@ class PortfolioMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    ThemeData theme = Theme.of(context);
 
     return Scaffold(
       key: scaffoldKey,
       body: Container(
         decoration: BoxDecoration(
-          gradient: Theme.of(context).brightness == Brightness.dark
+          gradient: theme.brightness == Brightness.dark
               ? GradientStyles.darkHeroGradient
               : null,
-          color: Theme.of(context).brightness == Brightness.dark
-              ? null
-              : Color(0xffF9F8F8),
+          color: theme.brightness == Brightness.dark ? null : Color(0xffF9F8F8),
         ),
         child: NotificationListener<ScrollNotification>(
           onNotification: (scroll) {
@@ -86,7 +84,7 @@ class PortfolioMobile extends StatelessWidget {
                                 );
                                 onSectionSelected(index);
                               }
-                            }, size),
+                            }, size, theme),
                             deviceType: deviceType,
                             selectedIndex: selectedIndex.value,
                             onItemSelected: (i) => onSectionSelected(i),
@@ -143,7 +141,7 @@ class PortfolioMobile extends StatelessWidget {
 }
 
 void showSectionPickerDialog(BuildContext context, int selectedIndex,
-    Function(int) onSectionSelected, Size size) {
+    Function(int) onSectionSelected, Size size, ThemeData theme) {
   showDialog(
     context: context,
     builder: (context) {
@@ -198,7 +196,7 @@ void showSectionPickerDialog(BuildContext context, int selectedIndex,
                                     ? FontWeight.bold
                                     : FontWeight.normal,
                                 color: isSelected
-                                    ? Theme.of(context).highlightColor
+                                    ? theme.highlightColor
                                     : Colors.white,
                               ),
                             ),

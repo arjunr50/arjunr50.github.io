@@ -22,6 +22,7 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,20 +37,25 @@ class TitleText extends StatelessWidget {
               text: "Hello, I am",
               fontSize: 30,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white:Color(0xff145C9E),
+              color: theme.brightness == Brightness.dark
+                  ? Colors.white
+                  : Color(0xff145C9E),
             ),
             Wrap(
-
               children: [
                 TextView(
                   text: "Arjun R ",
                   fontSize: deviceType == DeviceType.phone ? 30 : 40,
                   fontWeight: FontWeight.w600,
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white:Color(0xff145C9E),
+                  color: theme.brightness == Brightness.dark
+                      ? Colors.white
+                      : Color(0xff145C9E),
                 ),
-                SvgPicture.asset(kHi,width: deviceType == DeviceType.phone ? 30 : 40,height: deviceType == DeviceType.phone ? 40 : 50,)
+                SvgPicture.asset(
+                  kHi,
+                  width: deviceType == DeviceType.phone ? 30 : 40,
+                  height: deviceType == DeviceType.phone ? 40 : 50,
+                )
               ],
             ),
             ShaderMask(
@@ -72,8 +78,7 @@ class TitleText extends StatelessWidget {
                             textStyle: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              color: Colors
-                                  .white,
+                              color: Colors.white,
                             ),
                             speed: const Duration(milliseconds: 150),
                           ))
@@ -90,8 +95,9 @@ class TitleText extends StatelessWidget {
               child: TextView(
                 text:
                     "Building scalable Flutter apps with clean architecture and smooth performance.",
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white:Color(0xff145C9E),
+                color: theme.brightness == Brightness.dark
+                    ? Colors.white
+                    : Color(0xff145C9E),
                 fontSize: 16,
                 textAlign: TextAlign.justify,
                 top: 10,

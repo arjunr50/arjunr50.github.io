@@ -50,7 +50,7 @@ class ProfileSection extends StatelessWidget {
                 ),
                 CountComponent(
                   size: size,
-                  count: '3',
+                  count: '2.6',
                   text: ' Years of',
                   text2: "Experience",
                 ),
@@ -96,7 +96,7 @@ class ProfileSection extends StatelessWidget {
                     ),
                     CountComponent(
                       size: size,
-                      count: '3',
+                      count: '2.6',
                       text: ' Years of',
                       text2: "Experience",
                     ),
@@ -107,9 +107,9 @@ class ProfileSection extends StatelessWidget {
           ],
         );
       case ProfileLayoutType.web:
-      return Container(
+        return Container(
           margin: EdgeInsets.symmetric(
-              horizontal: size.width * 0.15, vertical: size.height * 0.2),
+              horizontal: size.width * 0.10, vertical: size.height * 0.2),
           child: Column(
             children: [
               Row(
@@ -143,7 +143,7 @@ class ProfileSection extends StatelessWidget {
                   ),
                   CountComponent(
                     size: size,
-                    count: '3',
+                    count: '2.6',
                     text: ' Years of',
                     text2: "Experience",
                   ),

@@ -21,10 +21,11 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
       width: size.width,
       padding:
-          EdgeInsets.symmetric(horizontal: size.width * 0.13, vertical: 30),
+          EdgeInsets.symmetric(horizontal: size.width * 0.10, vertical: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,7 +33,7 @@ class ContactSection extends StatelessWidget {
             text: "Contact",
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).brightness == Brightness.dark
+            color: theme.brightness == Brightness.dark
                 ? Colors.white
                 : Color(0xff145C9E),
           ),
@@ -40,7 +41,7 @@ class ContactSection extends StatelessWidget {
             text:
                 "I'm open to exploring exciting projects, creative collaborations, or simply having a conversation. Feel free to get in touch anytime!",
             fontSize: 16,
-            color: Theme.of(context).colorScheme.onSurface,
+            color: theme.colorScheme.onSurface,
           ),
           const SizedBox(height: 20),
           Wrap(

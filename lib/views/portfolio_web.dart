@@ -28,17 +28,17 @@ class PortfolioWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    ThemeData theme = Theme.of(context);
     return ValueListenableBuilder(
       valueListenable: selectedIndex,
       builder: (context, value, child) {
         return Scaffold(
           body: Container(
             decoration: BoxDecoration(
-              gradient: Theme.of(context).brightness == Brightness.dark
+              gradient: theme.brightness == Brightness.dark
                   ? GradientStyles.darkHeroGradient
                   : null,
-              color: Theme.of(context).brightness == Brightness.dark
+              color: theme.brightness == Brightness.dark
                   ? null
                   : Color(0xffF9F8F8),
             ),

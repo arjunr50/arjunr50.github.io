@@ -51,7 +51,7 @@ class AppTheme {
 }
 
 class ThemeNotifier extends ChangeNotifier {
-  ThemeData _currentTheme = AppTheme.lightTheme;
+  ThemeData _currentTheme = AppTheme.darkTheme;
 
   ThemeData get currentTheme => _currentTheme;
 
