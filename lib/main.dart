@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
-import 'package:portfolio/views/home_page.dart';
+import 'package:portfolio/core/routes/router.dart';
 import 'package:provider/provider.dart';
 import 'core/constants/menu.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return AnimatedBuilder(
         animation: themeNotifier,
         builder: (context, _) {
-          return MaterialApp(
+          return MaterialApp.router(
             scaffoldMessengerKey: snackBarKey,
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
@@ -32,7 +32,9 @@ class MyApp extends StatelessWidget {
             themeMode: themeNotifier.currentTheme.brightness == Brightness.dark
                 ? ThemeMode.dark
                 : ThemeMode.light,
-            home: HomePage(),
+            routerDelegate: router.routerDelegate,
+            routeInformationParser: router.routeInformationParser,
+            routeInformationProvider: router.routeInformationProvider,
           );
         });
   }

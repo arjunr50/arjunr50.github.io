@@ -52,11 +52,18 @@
   </div>
   <script src="flutter_bootstrap.js" async></script>
   <script>
-    window.addEventListener('flutter-ready', function() {
-      const loadingIndicator = document.getElementById('loading_indicator');
-      if (loadingIndicator) {
-        loadingIndicator.remove();
-      }
+    function removeLoader() {
+      const loader = document.getElementById('loading_indicator');
+      if (!loader) return;
+      loader.style.opacity = '0';
+      loader.style.pointerEvents = 'none';
+      setTimeout(() => loader.remove(), 300);
+    }
+
+    window.addEventListener('flutter-ready', removeLoader);
+
+    window.addEventListener('load', function () {
+      setTimeout(removeLoader, 1200);
     });
   </script>
 </body>
