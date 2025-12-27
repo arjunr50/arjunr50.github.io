@@ -22,7 +22,8 @@ class ProjectSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: size.width,
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.10, vertical: 30),
+      padding:
+          EdgeInsets.symmetric(horizontal: size.width * 0.10, vertical: 30),
       child: Column(
           spacing: 30,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,6 +55,22 @@ class ProjectSection extends StatelessWidget {
 }
 
 final List<Map<String, String>> projectsData = [
+  {
+    'imagePath': kTudu,
+    'app': 'Mobile App',
+    'tech_stack': 'Flutter, Hive',
+    'title': 'TUDU',
+    'description': ' A Minimal Todo app',
+    'link': '',
+  },
+  {
+    'imagePath': kBlink,
+    'app': 'Mobile App',
+    'tech_stack': 'Flutter, REST, Get Storage',
+    'title': 'Blink',
+    'description': ' A Minimal Todo app',
+    'link': '',
+  },
   {
     'imagePath': kDAlert,
     'app': 'Mobile App',

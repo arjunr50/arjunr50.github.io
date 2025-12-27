@@ -50,10 +50,15 @@ class ProjectCard extends StatelessWidget {
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(15),
                                 topRight: Radius.circular(15)),
-                            child: Image.asset(data['imagePath']!,
-                                height: 180,
-                                fit: BoxFit.fitWidth,
-                                width: double.infinity),
+                            child: SizedBox(
+                              height: 180,
+                              width: double.infinity,
+                              child: FittedBox(
+                                fit: BoxFit.cover,
+                                alignment: Alignment.center,
+                                child: Image.asset(data['imagePath']!),
+                              ),
+                            )
                           ),
                           Positioned(
                             top: 10,
@@ -74,7 +79,8 @@ class ProjectCard extends StatelessWidget {
                                     .withValues(alpha: 0.5)),
                           ),
                         ]),
-                        Padding(
+                        Container(
+                          height: 120,
                           padding: const EdgeInsets.all(10),
                           child: Column(
                             spacing: 10,

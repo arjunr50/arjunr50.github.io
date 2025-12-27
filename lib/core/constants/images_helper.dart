@@ -6,6 +6,9 @@ const String kEnstva = '${image}enstva.png';
 const String kEventally = '${image}eventally.png';
 const String kDAlert = '${image}d_alert.png';
 const String kKerala = '${image}kerala.png';
+const String kBlink = '${image}blink.png';
+const String kTudu = '${image}tudu.png';
+
 const String kHeart = '${svg}heart.svg';
 const String kLightMode = '${svg}light_mode.svg';
 const String kDarkMode = '${svg}dark_mode.svg';
