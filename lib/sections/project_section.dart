@@ -69,7 +69,7 @@ final List<Map<String, String>> projectsData = [
     'tech_stack': 'Flutter, REST, Get Storage',
     'title': 'Blink',
     'description': ' A Minimal Todo app',
-    'link': '',
+    'link': 'https://github.com/arjunr50/blink',
   },
   {
     'imagePath': kDAlert,
