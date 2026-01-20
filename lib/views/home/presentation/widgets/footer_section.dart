@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/constants/images_helper.dart';
-import 'package:portfolio/widgets/textview.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/core/shared/textview.dart';
 
 class PortfolioFooter extends StatelessWidget {
   const PortfolioFooter({super.key});

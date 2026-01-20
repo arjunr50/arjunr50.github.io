@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/device_type.dart';
-import 'package:portfolio/views/portfolio_mobile.dart';
-import 'package:portfolio/views/portfolio_tab.dart';
-import 'package:portfolio/views/portfolio_web.dart';
+part of 'package:portfolio/views/home/presentation/bloc/home_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -95,33 +91,79 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      switch (ScreenType(constraints.maxWidth).screen) {
-        case DeviceType.web:
-          return PortfolioWeb(
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => sl<HomeBloc>()..add(const _GetPortFolioData()),
+        child: BlocConsumer<HomeBloc, HomeState>(
+          listener: (context, state) {
+            if (state is _Initial) {
+              context.read<HomeBloc>().add(_GetPortFolioData());
+            }
+          },
+          builder: (context, state) {
+            return BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                if (state is _Loading) {
+                  return HomePageShimmer();
+                }
+                if (state is _Failed) {
+                  return ErrorUI(
+                    error: state.error.message,
+                    callBack: () =>
+                        context.read<HomeBloc>().add(const _GetPortFolioData()),
+                  );
+                }
+                if (state is _Success) {
+                  return _buildSuccessUI(context, state.data);
+                }
+                return const HomePageShimmer();
+              },
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSuccessUI(
+    BuildContext context,
+    PortfolioResponse portfolioData,
+  ) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        switch (ScreenType(constraints.maxWidth).screen) {
+          case DeviceType.web:
+            return PortfolioWeb(
               deviceType: DeviceType.web,
               sectionKeys: _sectionKeys,
               selectedIndex: _selectedIndex,
               onSectionSelected: onSectionSelected,
               hasScrolled: _hasScrolled,
-              scrollController: _scrollController);
-        case DeviceType.tab:
-          return PortfolioTab(
+              scrollController: _scrollController,
+              data: portfolioData,
+            );
+          case DeviceType.tab:
+            return PortfolioTab(
               deviceType: DeviceType.tab,
               sectionKeys: _sectionKeys,
               onSectionSelected: onSectionSelected,
               selectedIndex: _selectedIndex,
               hasScrolled: _hasScrolled,
-              scrollController: _scrollController);
-        case DeviceType.phone:
-          return PortfolioMobile(
+              scrollController: _scrollController,
+              data: portfolioData,
+            );
+          case DeviceType.phone:
+            return PortfolioMobile(
               deviceType: DeviceType.phone,
               sectionKeys: _sectionKeys,
               onSectionSelected: onSectionSelected,
               selectedIndex: _selectedIndex,
               hasScrolled: _hasScrolled,
-              scrollController: _scrollController);
-      }
-    });
+              scrollController: _scrollController,
+              data: portfolioData,
+            );
+        }
+      },
+    );
   }
 }

@@ -3,13 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/styles.dart';
 import 'package:portfolio/core/utils/device_type.dart';
-import 'package:portfolio/sections/about_me_section.dart';
-import 'package:portfolio/sections/contact_section.dart';
-import 'package:portfolio/sections/footer_section.dart';
-import 'package:portfolio/sections/profile_section.dart';
-import 'package:portfolio/sections/project_section.dart';
-import 'package:portfolio/widgets/appbar.dart';
-import 'package:portfolio/widgets/textview.dart';
+import 'package:portfolio/views/home/domain/entities/portfolio_response.dart';
+import 'package:portfolio/views/home/presentation/widgets/about_me_section.dart';
+import 'package:portfolio/core/shared/appbar.dart';
+import 'package:portfolio/views/home/presentation/widgets/contact_section.dart';
+import 'package:portfolio/views/home/presentation/widgets/footer_section.dart';
+import 'package:portfolio/views/home/presentation/widgets/profile_section.dart';
+import 'package:portfolio/views/home/presentation/widgets/project_section.dart';
+import 'package:portfolio/core/shared/textview.dart';
 
 class PortfolioMobile extends StatelessWidget {
   PortfolioMobile({
@@ -20,6 +21,7 @@ class PortfolioMobile extends StatelessWidget {
     required this.selectedIndex,
     required this.hasScrolled,
     required this.scrollController,
+    required this.data,
   });
 
   final DeviceType deviceType;
@@ -29,6 +31,7 @@ class PortfolioMobile extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final ValueNotifier<bool> hasScrolled;
   final ScrollController scrollController;
+  final PortfolioResponse data;
 
   @override
   Widget build(BuildContext context) {
@@ -50,30 +53,32 @@ class PortfolioMobile extends StatelessWidget {
             return false;
           },
           child: ValueListenableBuilder(
-              valueListenable: hasScrolled,
-              builder: (context, hasScrolled, _) {
-                return CustomScrollView(
-                  controller: scrollController,
-                  slivers: [
-                    SliverAppBar(
-                      pinned: true,
-                      floating: false,
-                      forceElevated: hasScrolled,
-                      backgroundColor: Colors.transparent,
-                      surfaceTintColor: Colors.transparent,
-                      flexibleSpace: Material(
-                        color: Colors.transparent,
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: size.width * 0.03,
-                            right: size.width * 0.03,
-                            top: 30,
-                          ),
-                          child: CustomAppBar(
-                            name: 'Arjun R',
-                            showMenuIcon: true,
-                            onMenuPressed: () => showSectionPickerDialog(
-                                context, selectedIndex.value, (index) {
+            valueListenable: hasScrolled,
+            builder: (context, hasScrolled, _) {
+              return CustomScrollView(
+                controller: scrollController,
+                slivers: [
+                  SliverAppBar(
+                    pinned: true,
+                    floating: false,
+                    forceElevated: hasScrolled,
+                    backgroundColor: Colors.transparent,
+                    surfaceTintColor: Colors.transparent,
+                    flexibleSpace: Material(
+                      color: Colors.transparent,
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          left: size.width * 0.03,
+                          right: size.width * 0.03,
+                          top: 30,
+                        ),
+                        child: CustomAppBar(
+                          name: 'Arjun R',
+                          showMenuIcon: true,
+                          onMenuPressed: () => showSectionPickerDialog(
+                            context,
+                            selectedIndex.value,
+                            (index) {
                               final contextSection =
                                   sectionKeys[index].currentContext;
                               if (contextSection != null) {
@@ -84,64 +89,77 @@ class PortfolioMobile extends StatelessWidget {
                                 );
                                 onSectionSelected(index);
                               }
-                            }, size, theme),
-                            deviceType: deviceType,
-                            selectedIndex: selectedIndex.value,
-                            onItemSelected: (i) => onSectionSelected(i),
+                            },
+                            size,
+                            theme,
                           ),
-                        ),
-                      ),
-                      expandedHeight: 90,
-                      toolbarHeight: 90,
-                      automaticallyImplyLeading: false,
-                    ),
-                    SliverToBoxAdapter(
-                      child: Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: size.height * 0.09),
-                        child: ProfileSection(
-                          key: sectionKeys[0],
-                          size: size,
                           deviceType: deviceType,
-                          layoutType: ProfileLayoutType.mobile,
+                          selectedIndex: selectedIndex.value,
+                          onItemSelected: (i) => onSectionSelected(i),
                         ),
                       ),
                     ),
-                    SliverToBoxAdapter(
-                      child: AboutMeSection(
-                          aboutMeKey: sectionKeys[1],
-                          skillsKey: sectionKeys[2],
-                          size: size,
-                          deviceType: deviceType),
-                    ),
-                    SliverToBoxAdapter(
-                      child: ProjectSection(
-                        key: sectionKeys[3],
+                    expandedHeight: 90,
+                    toolbarHeight: 90,
+                    automaticallyImplyLeading: false,
+                  ),
+                  SliverToBoxAdapter(
+                    child: Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: size.height * 0.09,
+                      ),
+                      child: ProfileSection(
+                        key: sectionKeys[0],
                         size: size,
                         deviceType: deviceType,
+                        layoutType: ProfileLayoutType.mobile,
+                        data: data,
                       ),
                     ),
-                    SliverToBoxAdapter(
-                      child: ContactSection(
-                        key: sectionKeys[4],
-                        size: size,
-                        deviceType: deviceType,
-                      ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: AboutMeSection(
+                      aboutMeKey: sectionKeys[1],
+                      skillsKey: sectionKeys[2],
+                      size: size,
+                      deviceType: deviceType,
+                      data: data,
                     ),
-                    SliverToBoxAdapter(
-                      child: PortfolioFooter(),
+                  ),
+                  SliverToBoxAdapter(
+                    child: ProjectSection(
+                      key: sectionKeys[3],
+                      size: size,
+                      deviceType: deviceType,
+                      data: data,
                     ),
-                  ],
-                );
-              }),
+                  ),
+                  SliverToBoxAdapter(
+                    child: ContactSection(
+                      key: sectionKeys[4],
+                      size: size,
+                      deviceType: deviceType,
+                      data: data,
+                    ),
+                  ),
+                  SliverToBoxAdapter(child: PortfolioFooter()),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
 
-void showSectionPickerDialog(BuildContext context, int selectedIndex,
-    Function(int) onSectionSelected, Size size, ThemeData theme) {
+void showSectionPickerDialog(
+  BuildContext context,
+  int selectedIndex,
+  Function(int) onSectionSelected,
+  Size size,
+  ThemeData theme,
+) {
   showDialog(
     context: context,
     builder: (context) {

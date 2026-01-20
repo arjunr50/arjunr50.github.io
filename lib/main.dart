@@ -3,9 +3,11 @@ import 'package:portfolio/core/constants/app_theme.dart';
 import 'package:portfolio/core/routes/router.dart';
 import 'package:provider/provider.dart';
 import 'core/constants/menu.dart';
+import 'core/di/injection.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await init();
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeNotifier(),

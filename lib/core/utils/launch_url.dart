@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/core/constants/menu.dart';
-import 'package:portfolio/widgets/textview.dart';
+import 'package:portfolio/core/shared/textview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> openUrl(String link) async {

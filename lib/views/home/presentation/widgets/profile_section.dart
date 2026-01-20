@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_colors.dart';
+import 'package:portfolio/core/shared/title_text.dart';
 import 'package:portfolio/core/utils/device_type.dart';
-import 'package:portfolio/widgets/image_container.dart';
-import 'package:portfolio/widgets/title_text.dart';
+import 'package:portfolio/views/home/domain/entities/portfolio_response.dart';
+import 'package:portfolio/views/home/presentation/widgets/image_container.dart';
 
 import '../widgets/count_component.dart';
 
@@ -14,11 +15,13 @@ class ProfileSection extends StatelessWidget {
     required this.size,
     required this.deviceType,
     this.layoutType = ProfileLayoutType.web,
+    required this.data,
   });
 
   final Size size;
   final DeviceType deviceType;
   final ProfileLayoutType layoutType;
+  final PortfolioResponse data;
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +36,14 @@ class ProfileSection extends StatelessWidget {
               direction: Axis.vertical,
               widthPercent: 0.65,
               deviceType: deviceType,
+              data: data,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CountComponent(
                   size: size,
-                  count: '4+',
+                  count: '${data.personal.noOfProjects}+',
                   text: ' Projects',
                   text2: "Completed",
                 ),
@@ -50,7 +54,7 @@ class ProfileSection extends StatelessWidget {
                 ),
                 CountComponent(
                   size: size,
-                  count: '2.6',
+                  count: '${data.personal.exp}',
                   text: ' Years of',
                   text2: "Experience",
                 ),
@@ -75,6 +79,7 @@ class ProfileSection extends StatelessWidget {
                   direction: Axis.vertical,
                   widthPercent: 0.75,
                   deviceType: deviceType,
+                  data: data,
                 ),
                 SizedBox(height: 20),
                 Column(
@@ -82,7 +87,7 @@ class ProfileSection extends StatelessWidget {
                   children: [
                     CountComponent(
                       size: size,
-                      count: '4+',
+                      count: '${data.personal.noOfProjects}+',
                       text: ' Projects',
                       text2: "Completed",
                     ),
@@ -96,7 +101,7 @@ class ProfileSection extends StatelessWidget {
                     ),
                     CountComponent(
                       size: size,
-                      count: '2.6',
+                      count: '${data.personal.exp}',
                       text: ' Years of',
                       text2: "Experience",
                     ),
@@ -109,7 +114,9 @@ class ProfileSection extends StatelessWidget {
       case ProfileLayoutType.web:
         return Container(
           margin: EdgeInsets.symmetric(
-              horizontal: size.width * 0.10, vertical: size.height * 0.2),
+            horizontal: size.width * 0.10,
+            vertical: size.height * 0.2,
+          ),
           child: Column(
             children: [
               Row(
@@ -121,13 +128,14 @@ class ProfileSection extends StatelessWidget {
                     size: size,
                     direction: Axis.horizontal,
                     deviceType: deviceType,
+                    data: data,
                   ),
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [ImageContainer()],
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 20),
@@ -137,13 +145,13 @@ class ProfileSection extends StatelessWidget {
                 children: [
                   CountComponent(
                     size: size,
-                    count: '4+',
+                    count: '${data.personal.noOfProjects}+',
                     text: ' Projects',
                     text2: "Completed",
                   ),
                   CountComponent(
                     size: size,
-                    count: '2.6',
+                    count: '${data.personal.exp}',
                     text: ' Years of',
                     text2: "Experience",
                   ),

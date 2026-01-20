@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/constant.dart';
 import 'package:portfolio/core/utils/device_type.dart';
 import 'package:portfolio/core/utils/launch_url.dart';
-import 'package:portfolio/widgets/social_icons.dart';
-import 'package:portfolio/widgets/textview.dart';
+import 'package:portfolio/views/home/domain/entities/portfolio_response.dart';
+import 'package:portfolio/views/home/presentation/widgets/social_icons.dart';
+import 'package:portfolio/core/shared/textview.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({
@@ -11,13 +12,14 @@ class ContactSection extends StatelessWidget {
     required this.size,
     required this.deviceType,
     this.margin,
-    this.height,
+    this.height, required this.data,
   });
 
   final Size size;
   final DeviceType deviceType;
   final EdgeInsetsGeometry? margin;
   final double? height;
+  final PortfolioResponse data;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class ContactSection extends StatelessWidget {
           ),
           TextView(
             text:
-                "I'm open to exploring exciting projects, creative collaborations, or simply having a conversation. Feel free to get in touch anytime!",
+                data.personal.contact,
             fontSize: 16,
             color: theme.colorScheme.onSurface,
           ),
@@ -52,24 +54,24 @@ class ContactSection extends StatelessWidget {
               ContactInfoCard(
                 color: Colors.blueAccent,
                 icon: Icons.email,
-                value: kEmail,
-                onClick: () => openUrl('mailto:$kEmail'),
+                value: data.personal.email,
+                onClick: () => openUrl('mailto:${data.personal.email}'),
               ),
               ContactInfoCard(
                 color: Colors.green,
                 icon: Icons.location_on,
-                value: "Kochi, kerala, India",
+                value: data.personal.location.join(","),
               ),
               ContactInfoCard(
                 color: Colors.orange,
                 icon: Icons.phone,
-                value: kPhoneNo,
-                onClick: () => openUrl('tel:$kPhoneNo'),
+                value: data.personal.phone,
+                onClick: () => openUrl('tel:${data.personal.phone}'),
               ),
             ],
           ),
           const SizedBox(height: 40),
-          SocialIcons()
+          SocialIcons(data: data,)
         ],
       ),
     );

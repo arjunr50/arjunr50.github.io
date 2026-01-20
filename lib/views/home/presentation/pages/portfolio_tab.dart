@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/styles.dart';
 import 'package:portfolio/core/utils/device_type.dart';
-import 'package:portfolio/sections/about_me_section.dart';
-import 'package:portfolio/sections/contact_section.dart';
-import 'package:portfolio/sections/footer_section.dart';
-import 'package:portfolio/sections/profile_section.dart';
-import 'package:portfolio/sections/project_section.dart';
-import 'package:portfolio/widgets/appbar.dart';
+import 'package:portfolio/views/home/domain/entities/portfolio_response.dart';
+import 'package:portfolio/views/home/presentation/widgets/about_me_section.dart';
+import 'package:portfolio/core/shared/appbar.dart';
+import 'package:portfolio/views/home/presentation/widgets/contact_section.dart';
+import 'package:portfolio/views/home/presentation/widgets/footer_section.dart';
+import 'package:portfolio/views/home/presentation/widgets/profile_section.dart';
+import 'package:portfolio/views/home/presentation/widgets/project_section.dart';
 
 class PortfolioTab extends StatelessWidget {
   const PortfolioTab(
@@ -16,7 +17,7 @@ class PortfolioTab extends StatelessWidget {
       required this.onSectionSelected,
       required this.selectedIndex,
       required this.hasScrolled,
-      required this.scrollController});
+      required this.scrollController, required this.data});
 
   final DeviceType deviceType;
   final List<GlobalKey> sectionKeys;
@@ -24,6 +25,8 @@ class PortfolioTab extends StatelessWidget {
   final ValueNotifier<int> selectedIndex;
   final ValueNotifier<bool> hasScrolled;
   final ScrollController scrollController;
+  final PortfolioResponse data;
+
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +94,7 @@ class PortfolioTab extends StatelessWidget {
                                 size: size,
                                 deviceType: deviceType,
                                 layoutType: ProfileLayoutType.mobile,
+                                data: data,
                               ),
                             ),
                           ),
@@ -100,6 +104,7 @@ class PortfolioTab extends StatelessWidget {
                               skillsKey: sectionKeys[2],
                               size: size,
                               deviceType: deviceType,
+                              data: data,
                             ),
                           ),
                           SliverToBoxAdapter(
@@ -107,6 +112,7 @@ class PortfolioTab extends StatelessWidget {
                               key: sectionKeys[3],
                               size: size,
                               deviceType: deviceType,
+                              data: data,
                             ),
                           ),
                           SliverToBoxAdapter(
@@ -114,6 +120,7 @@ class PortfolioTab extends StatelessWidget {
                               key: sectionKeys[4],
                               size: size,
                               deviceType: deviceType,
+                              data: data,
                             ),
                           ),
                           SliverToBoxAdapter(

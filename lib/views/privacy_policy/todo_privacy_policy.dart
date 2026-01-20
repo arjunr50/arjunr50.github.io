@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/textview.dart';
+import 'package:portfolio/core/shared/textview.dart';
 
 class TuduPrivacyPolicy extends StatelessWidget {
   const TuduPrivacyPolicy({super.key});
