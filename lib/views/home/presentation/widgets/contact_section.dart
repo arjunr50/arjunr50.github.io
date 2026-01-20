@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/constant.dart';
 import 'package:portfolio/core/utils/device_type.dart';
 import 'package:portfolio/core/utils/launch_url.dart';
 import 'package:portfolio/views/home/domain/entities/portfolio_response.dart';

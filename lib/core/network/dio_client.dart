@@ -108,7 +108,7 @@ class DioClient {
         isSuccess: false,
         description: jsonBody?['description']?.toString() ??
             jsonBody?['error']?.toString() ??
-            'Server error (${httpStatusCode})',
+            'Server error ($httpStatusCode)',
       );
     }
 
