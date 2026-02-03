@@ -27462,11 +27462,11 @@ _.a=a
 _.b=b
 _.c=c
 _.d=d},
-b0d(a){var s="/portfolio/personal"
-switch(a.a){case 0:return"/portfolio"
+b0d(a){var s="https://unified-backend-wrmb.onrender.com/portfolio/personal"
+switch(a.a){case 0:return"https://unified-backend-wrmb.onrender.com/portfolio"
 case 1:return s
 case 3:return s
-case 2:return"/portfolio/projects"}},
+case 2:return"https://unified-backend-wrmb.onrender.com/portfolio/projects"}},
 aZr(a){switch(a.a){case 0:case 1:case 3:case 2:return B.S4}},
 a9M:function a9M(a,b){this.a=a
 this.b=b},
